@@ -1,0 +1,43 @@
+body {
+    text-align: center;
+}
+
+.background-container {
+    position: relative;
+    height: 100vh;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    overflow: hidden; 
+}
+
+.background-image {
+    position: absolute; 
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; 
+    z-index: -1;
+}
+a {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    transform: translateX(-50%);
+    z-index: 1;
+    font-size: 35px;
+    text-decoration: dotted;
+    color: darkblue;
+    font-family: 'Segoe UI';
+}
+
+.overlay-video {
+    width: 40%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}

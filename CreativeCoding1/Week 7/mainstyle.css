@@ -1,0 +1,65 @@
+body {
+
+    text-align: center;
+}
+
+.background-container {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: rgb(144, 223, 223);
+}
+
+.background-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1 {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 1; 
+    font-size: 48px; 
+    color: powderblue;
+}
+
+span {
+    color: black;
+    font-family: Impact
+}
+
+a {
+    position: absolute;
+    top: 75%;
+    left: 20%;
+    transform: translateX(-50%);
+    z-index: 1;
+    font-size: 20px;
+}
+
+.text-overlay {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 1;
+    font-size: 48px;
+    color: powderblue;
+}
+
+#header {
+    font-size: 36px;
+    color: purple;
+}
+
+#footer {
+    font-size: 18px;
+    color: gray;
+}
