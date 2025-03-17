@@ -1,0 +1,93 @@
+<html>
+<head>
+    <title>Math Game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="SameStyle.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        h1 {
+            font-family: 'Arial', sans-serif;
+        }
+        a {
+            color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" style="text-decoration:double" target="_self">
+        <button type="button" class="btn btn-primary">Homepage</button>
+    </a>
+    <a href="MG.html" style="text-decoration:double" target="_self">
+        <button type="button" class="btn btn-danger">Math Game</button>
+    </a>
+    <a href="Contact.html" style="text-decoration:double" target="_self">
+        <button type="button" class="btn btn-link">Contact us</button>
+    </a>
+
+    <div id="theQuestion"></div>
+    <table>
+        <tr>
+            <td>Your answer</td>
+            <td><input type="text" id="txtAnswer"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button id="btnSubmit" onClick="checkAnswer();">Submit</button></td>
+        </tr>
+    </table>
+    <div id="finalResult"></div>
+
+    <script>
+        var actualAnswer;
+        var correctCount = 0;
+        var incorrectCount = 0;
+        var totalQuestions = 0;
+
+        function printQuestion() {
+            if (totalQuestions >= 10) {
+                document.getElementById("theQuestion").innerHTML = "Nice Job! Here's your stats";
+                document.getElementById("btnSubmit").disabled = true;
+                showResults();
+                return;
+            }
+
+            var number1 = Math.floor(Math.random() * 10);
+            var number2 = Math.floor(Math.random() * 10);
+            actualAnswer = number1 + number2;
+            document.getElementById("theQuestion").innerHTML = "What is " + number1 + " + " + number2 + "?";
+        }
+
+        function checkAnswer() {
+            var answer = document.getElementById("txtAnswer").value;
+
+            if (answer == actualAnswer) {
+                correctCount++;
+                document.getElementById("finalResult").innerHTML = "Good job!";
+            } else {
+                incorrectCount++;
+                document.getElementById("finalResult").innerHTML = "Not quite! The correct answer was " + actualAnswer + ".";
+            }
+
+            totalQuestions++;
+            document.getElementById("txtAnswer").value = "";
+
+            if (totalQuestions < 10) {
+                printQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            var percentage = (correctCount / 10) * 100;
+            document.getElementById("finalResult").innerHTML =
+                "Quiz over!<br>" +
+                "Correct answers: " + correctCount + "<br>" +
+                "Incorrect answers: " + incorrectCount + "<br>" +
+                "Percentage correct: " + percentage.toFixed(2) + "%";
+        }
+
+        window.onload = printQuestion;
+    </script>
+</body>
+</html>

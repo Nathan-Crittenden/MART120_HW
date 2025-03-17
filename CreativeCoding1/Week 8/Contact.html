@@ -1,0 +1,126 @@
+<head>
+    <title>Contact Us</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="SameStyle.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        h1 {
+            font-family: 'Arial', sans-serif;
+        }
+        a {
+            color: darkblue;
+        }
+        .error {
+            border: 2px solid red;
+            background-color: #ffebee;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" style="text-decoration:double" target="_self">
+        <button type="button" class="btn btn-primary">Homepage</button>
+    </a>
+    <a href="MG.html" style="text-decoration:double" target="_self">
+        <button type="button" class="btn btn-danger">Math Game</button>
+    </a>
+    <a href="Contact.html" style="text-decoration:double" target="_self">
+        <button type="button" class="btn btn-link">Contact us</button>
+    </a>
+
+    <table>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" id="txtName"></td>
+        </tr>
+        <tr>
+            <td>Phone Number</td>
+            <td><input type="text" id="txtPhone"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" id="txtemail"></td>
+        </tr>
+        <tr>
+            <td>Company or Organization</td>
+            <td><input type="text" id="textgroup"></td>
+        </tr>
+        <tr>
+            <td>Please provide a brief description of why you are contacting us.</td>
+            <td><input type="text" id="txtreason"></td>
+        </tr>
+        <tr>
+            <td>Terms and Conditions</td>
+            <td><input type="checkbox" id="termsCheckbox"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button id="btnSubmit" onClick="getData();">Submit</button>
+            </td>
+        </tr>
+    </table>
+
+    <div id="finalResult"></div>
+
+    <script>
+        function getData() {
+            var name = document.getElementById("txtName");
+            var phone = document.getElementById("txtPhone");
+            var email = document.getElementById("txtemail");
+            var group = document.getElementById("textgroup");
+            var reason = document.getElementById("txtreason");
+            var button = document.getElementById("termsCheckbox");
+
+            name.classList.remove("error");
+            phone.classList.remove("error");
+            email.classList.remove("error");
+            group.classList.remove("error");
+            reason.classList.remove("error");
+            button.classList.remove("error");
+
+            var isValid = true;
+
+            if (name.value.trim() === "") {
+                name.classList.add("error");
+                isValid = false;
+            }
+            if (phone.value.trim() === "") {
+                phone.classList.add("error");
+                isValid = false;
+            }
+            if (email.value.trim() === "") {
+                email.classList.add("error");
+                isValid = false;
+            }
+            if (group.value.trim() === "") {
+                group.classList.add("error");
+                isValid = false;
+            }
+            if (reason.value.trim() === "") {
+                reason.classList.add("error");
+                isValid = false;
+            }
+            if (!button.checked) {
+                button.classList.add("error");
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert("Thank you!");
+                clearFields();
+            } else {
+                alert("Please fill out all required fields.");
+            }
+        }
+
+        function clearFields() {
+            document.getElementById("txtName").value = "";
+            document.getElementById("txtPhone").value = "";
+            document.getElementById("txtemail").value = "";
+            document.getElementById("textgroup").value = "";
+            document.getElementById("txtreason").value = "";
+            document.getElementById("termsCheckbox").checked = false;
+        }
+    </script>
+</body>
+</html>
