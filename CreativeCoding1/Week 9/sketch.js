@@ -1,6 +1,7 @@
 function setup()
 {
     createCanvas(1000, 800);
+    movement = floor(random() * 10) + 1;
 }
 
 function draw()
