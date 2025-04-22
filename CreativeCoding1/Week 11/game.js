@@ -35,6 +35,20 @@ function drawCharacter()
     rect(characterX, characterY, 30, 30);
 }
 
+function mouseClicked()
+{
+    mouseShapeX = mouseX;
+    mouseShapeY = mouseY;
+}
+
+function characterMovement()
+{
+    if(keyIsDown(w)) characterY -= 10;   
+    if(keyIsDown(s)) characterY += 10;   
+    if(keyIsDown(a)) characterX -= 10;   
+    if(keyIsDown(d)) characterX += 10;   
+}
+
 function createExit(thickness) {
   fill(0);
 
@@ -47,8 +61,6 @@ function draw()
     background(48, 148, 91);
     stroke(0);
     fill(0);
-    
-    createExit(5);
 
     const textY = height * 0.5;
     const textX = width * 0.15;
@@ -88,13 +100,6 @@ function draw()
     circle(mouseShapeX, mouseShapeY, 25);
 }
 
-function characterMovement()
-{
-    if(keyIsDown(w)) characterY -= 10;   
-    if(keyIsDown(s)) characterY += 10;   
-    if(keyIsDown(a)) characterX -= 10;   
-    if(keyIsDown(d)) characterX += 10;   
-}
 
 function mouseClicked()
 {
